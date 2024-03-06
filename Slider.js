@@ -26,6 +26,7 @@ export default class Slider {
     this.initialValue = targetObject[targetProperty];
     this.slider.value = this.initialValue;
     this.valueDisplay.textContent = this.initialValue;
+    this.container.appendChild(this.valueDisplay);
 
     const responsiveTarget  = ResponsiveObjectManager.createResponsiveObject(targetObject, (prop, value) => {
       if (prop === targetProperty) {
@@ -35,6 +36,7 @@ export default class Slider {
 
     this.slider.oninput = (e) => {
       const newValue = parseFloat(e.target.value);
+      this.valueDisplay.textContent = newValue; // Update the display
       this.targetObject[this.targetProperty] = newValue; // Update the property
       if (typeof this.targetObject.updateGeometry === 'function') {
         this.targetObject.updateGeometry(); // Update the geometry if it exists

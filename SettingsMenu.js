@@ -13,6 +13,29 @@ export default class SettingsMenu {
         gameContainer.style.display = gameContainer.style.display === 'none' ? 'block' : 'none';
       });
     });
+
+    // document.getElementById('toggleSettings').addEventListener('click', function() {
+    //   var gameContainer = document.getElementById('gamecontainer');
+    //   if (gameContainer.style.display === 'none' || gameContainer.style.display === '') {
+    //     gameContainer.style.display = 'block'; // Show settings
+    //   } else {
+    //     gameContainer.style.display = 'none'; // Hide settings
+    //   }
+    // });
+
+    document.getElementById('toggleSettings').addEventListener('click', function() {
+    var gameContainer = document.getElementById('gamecontainer');
+    var toggleBtn = document.getElementById('toggleSettings');
+    if (gameContainer.style.display === 'none' || gameContainer.style.display === '') {
+        gameContainer.style.display = 'block';
+        toggleBtn.classList.add('active'); // Add class for active state
+    } else {
+        gameContainer.style.display = 'none';
+        toggleBtn.classList.remove('active'); // Remove class when inactive
+    }
+});
+
+
   }
 
   addGroup(name, parent) {
