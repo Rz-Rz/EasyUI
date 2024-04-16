@@ -26,7 +26,7 @@ export default class Scoreboard {
 
   updateScore(player, score) {
     if (this.scores[player] !== undefined){
-    this.scores[player] += score; // Increment score
+    this.scores[player] = score; // Increment score
       const playerId = player === 'player1' ? 'score1' : 'score2';
     this.scoreboardElement.querySelector(`#${playerId}`).textContent = this.scores[player];
     } 
